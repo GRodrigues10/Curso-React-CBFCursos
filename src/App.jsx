@@ -5,18 +5,28 @@ import Body from "./Components/Body";
 import './App.css';
 import Relogio from "./Components/Relogio";
 import Numero from "./Components/Numero";
+import verde from './assets/verde.avif';
+import vermelho from './assets/vermelho.avif';
+import Led from "./Components/Led";
 
 function App() {
 
-  const [num, setNum] = useState(0);
+
+  const [ligado, setLigado] = useState(false);
+    
+
+  function cancelar(obj){
+    return obj.preventDefault();
+  }
 
   return (
+  
+
     <>
       
     
-      <p>Valor do State num em App: {num}</p>
-      <Numero num={num} setNum = {setNum}/>
-    
+    <Led ligado={ligado} setLigado={setLigado} />
+    <a href="https://youtube.com/" target="_blank" onClick={(e)=>cancelar(e)}>Youtube</a>
 
 
 
