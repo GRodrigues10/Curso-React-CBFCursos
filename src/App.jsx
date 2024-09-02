@@ -11,12 +11,28 @@ import Led from "./Components/Led";
 
 function App() {
 
+    const[log, setLog] = useState(false);
 
-  const [ligado, setLigado] = useState(false);
-    
+    const msgLogin = () => {
+      return 'Usuário logado'
+    }
 
-  function cancelar(obj){
-    return obj.preventDefault();
+    const msgLoginoff = () => {
+      return 'Por Favor, Logar!'
+    }
+
+
+  const cumprimento = () => {
+    const hora = new Date().getHours();
+    if(hora >= 0 && hora < 13){
+      return <p>Bom Dia</p>
+    }
+    else if(hora >= 13 && hora < 18){
+      return <p>Boa Tarde</p>
+    }
+    else{
+      return <p>Boa Noite</p>
+    }
   }
 
   return (
@@ -25,8 +41,9 @@ function App() {
     <>
       
     
-    <Led ligado={ligado} setLigado={setLigado} />
-    <a href="https://youtube.com/" target="_blank" onClick={(e)=>cancelar(e)}>Youtube</a>
+    {cumprimento()}
+    <p>{log?msgLogin():msgLoginoff()}</p>
+    <button onClick={()=>setLog(!log)}>{log ? 'Deslogar':'Logar'}</button>
 
 
 
