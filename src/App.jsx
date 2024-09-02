@@ -11,43 +11,45 @@ import Led from "./Components/Led";
 
 function App() {
 
-    const[log, setLog] = useState(false);
+  const [cor, setCor] = useState(1);
 
-    const msgLogin = () => {
-      return 'Usuário logado'
-    }
+  const vermelho = {
+    color:'red'
+  }
 
-    const msgLoginoff = () => {
-      return 'Por Favor, Logar!'
-    }
+  const verde = {
+    color:'green'
+  }
 
+  const azul = {
+    color:'blue'
+  }
 
-  const cumprimento = () => {
-    const hora = new Date().getHours();
-    if(hora >= 0 && hora < 13){
-      return <p>Bom Dia</p>
-    }
-    else if(hora >= 13 && hora < 18){
-      return <p>Boa Tarde</p>
-    }
-    else{
-      return <p>Boa Noite</p>
+  const retornaCor = (c) => {
+      if(c==1){
+        return vermelho
+      }
+      else if(c==2){
+        return verde
+      }
+      else{
+        return azul
+      }
+  }
+   
+  const mudaCor = () => {
+    setCor(c => c + 1)
+    if(cor > 2){
+      setCor(1)
     }
   }
 
   return (
   
-
-    <>
-      
-    
-    {cumprimento()}
-    <p>{log?msgLogin():msgLoginoff()}</p>
-    <button onClick={()=>setLog(!log)}>{log ? 'Deslogar':'Logar'}</button>
-
-
-
-    </>
+          <>
+            <h1 style={retornaCor(cor)}>Hello There!</h1>
+            <button onClick={()=>mudaCor()}>Mudar Cor</button>
+          </>
   );
 }
 
