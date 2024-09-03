@@ -11,28 +11,39 @@ import Led from "./Components/Led";
 
 
 function App() {
-  const carros = ['Gol', 'Siena', 'Ford', 'Fusca', 'HB20'];
-
-
-  const data = [{
-    "name": "Gabriel",
-    "age": 22
-}];
-
-const dt = data.map((c,i)=>(
-  <li key={i}>{i} - {c.name} - {c.age}</li>
-))
-
-   data.map((e,i)=>(
-        <p key={i}>{e}</p>
-  ))
-
-  return (
   
-          <>
-            {dt}
-          </>
-  );
+  const [nome, setNome] = useState('');
+  const [carro, setCarro] = useState('HRV');
+
+  const handleChange = (e) => {
+      setNome(e.target.value);
+  }
+
+  const handleChangeCar = (e)=>{
+    setCarro(e.target.value);
+  }
+
+
+  return(<>
+          <label>Digite seu Nome:</label>
+
+          <input type="text"
+                  name="fNome"
+                  onChange={handleChange}
+                  value={nome} />
+
+          <p>Nome Digitado: {nome}</p>
+          <label>Selecione um Carro</label>
+          <select value={carro} onChange={handleChangeCar}>
+            <option value='Hrv'>HRV</option>
+            <option value='Gol'>GOL</option>
+            <option value='Cruze'>CRUZE</option>
+          </select>
+        <br />
+          <label>Carro Selecionado:{carro}</label>
+          
+    
+        </>)
 }
 
 export default App;
