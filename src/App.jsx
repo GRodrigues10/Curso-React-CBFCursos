@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 
@@ -9,46 +9,28 @@ import verde from './assets/verde.avif';
 import vermelho from './assets/vermelho.avif';
 import Led from "./Components/Led";
 
+
 function App() {
+  const carros = ['Gol', 'Siena', 'Ford', 'Fusca', 'HB20'];
 
-  const [cor, setCor] = useState(1);
 
-  const vermelho = {
-    color:'red'
-  }
+  const data = [{
+    "name": "Gabriel",
+    "age": 22
+}];
 
-  const verde = {
-    color:'green'
-  }
+const dt = data.map((c,i)=>(
+  <li key={i}>{i} - {c.name} - {c.age}</li>
+))
 
-  const azul = {
-    color:'blue'
-  }
-
-  const retornaCor = (c) => {
-      if(c==1){
-        return vermelho
-      }
-      else if(c==2){
-        return verde
-      }
-      else{
-        return azul
-      }
-  }
-   
-  const mudaCor = () => {
-    setCor(c => c + 1)
-    if(cor > 2){
-      setCor(1)
-    }
-  }
+   data.map((e,i)=>(
+        <p key={i}>{e}</p>
+  ))
 
   return (
   
           <>
-            <h1 style={retornaCor(cor)}>Hello There!</h1>
-            <button onClick={()=>mudaCor()}>Mudar Cor</button>
+            {dt}
           </>
   );
 }
