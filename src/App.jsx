@@ -12,35 +12,61 @@ import Led from "./Components/Led";
 
 function App() {
   
-  const [nome, setNome] = useState('');
-  const [carro, setCarro] = useState('HRV');
+  const [form, setForm] = useState({'nome':'', 'curso':'', 'ano':''});
 
-  const handleChange = (e) => {
-      setNome(e.target.value);
+  const handleFormChange = (e) =>{
+      if(e.target.getAttribute('name')=='fNome'){
+        setForm({'nome':e.target.value, 'curso':form.curso, 'ano':form.ano})
+      }
+
+      else if(e.target.getAttribute('name')=='fCurso'){
+        setForm({'nome':form.nome, 'curso':e.target.value, 'ano':form.ano})
+      }
+
+      else{
+        setForm({'nome':form.nome, 'curso':form.value, 'ano':e.target.value})
+      }
+
+
+
+
+
   }
 
-  const handleChangeCar = (e)=>{
-    setCarro(e.target.value);
-  }
+
 
 
   return(<>
-          <label>Digite seu Nome:</label>
+
+
+          <label>Nome:</label>
 
           <input type="text"
                   name="fNome"
-                  onChange={handleChange}
-                  value={nome} />
+                  onChange={(e)=>handleFormChange(e)}
+                  value={form.nome} />
 
-          <p>Nome Digitado: {nome}</p>
-          <label>Selecione um Carro</label>
-          <select value={carro} onChange={handleChangeCar}>
-            <option value='Hrv'>HRV</option>
-            <option value='Gol'>GOL</option>
-            <option value='Cruze'>CRUZE</option>
-          </select>
-        <br />
-          <label>Carro Selecionado:{carro}</label>
+                  
+          <label>Curso:</label>
+
+          <input type="text"
+          name="fCurso"
+          onChange={(e)=>handleFormChange(e)}
+          value={form.curso} />
+
+
+        
+          <label>Ano:</label>
+
+          <input type="text"
+                  name="fAno"
+                  onChange={(e)=>handleFormChange(e)}
+                  value={form.ano} />
+
+          <p>Nome Digitado: {form.nome}</p>
+          <p>Curso Digitado: {form.curso}</p>
+          <p>Ano Digitado: {form.ano}</p>
+        
           
     
         </>)
