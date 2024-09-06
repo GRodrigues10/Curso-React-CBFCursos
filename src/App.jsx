@@ -8,65 +8,29 @@ import Numero from "./Components/Numero";
 import verde from './assets/verde.avif';
 import vermelho from './assets/vermelho.avif';
 import Led from "./Components/Led";
+import Nota from "./Components/Nota";
+import Resultado from "./Components/Resultado";
+
 
 
 function App() {
   
-  const [form, setForm] = useState({'nome':'', 'curso':'', 'ano':''});
-
-  const handleFormChange = (e) =>{
-      if(e.target.getAttribute('name')=='fNome'){
-        setForm({'nome':e.target.value, 'curso':form.curso, 'ano':form.ano})
-      }
-
-      else if(e.target.getAttribute('name')=='fCurso'){
-        setForm({'nome':form.nome, 'curso':e.target.value, 'ano':form.ano})
-      }
-
-      else{
-        setForm({'nome':form.nome, 'curso':form.value, 'ano':e.target.value})
-      }
-
-
-
-
-
-  }
+  const [nota1, setNota1] = useState(0);
+  const [nota2, setNota2] = useState(0);
+  const [nota3, setNota3] = useState(0);
+  const [nota4, setNota4] = useState(0);
 
 
 
 
   return(<>
 
-
-          <label>Nome:</label>
-
-          <input type="text"
-                  name="fNome"
-                  onChange={(e)=>handleFormChange(e)}
-                  value={form.nome} />
-
-                  
-          <label>Curso:</label>
-
-          <input type="text"
-          name="fCurso"
-          onChange={(e)=>handleFormChange(e)}
-          value={form.curso} />
-
-
         
-          <label>Ano:</label>
-
-          <input type="text"
-                  name="fAno"
-                  onChange={(e)=>handleFormChange(e)}
-                  value={form.ano} />
-
-          <p>Nome Digitado: {form.nome}</p>
-          <p>Curso Digitado: {form.curso}</p>
-          <p>Ano Digitado: {form.ano}</p>
-        
+        <Nota num = {1} nota ={nota1} setNota={setNota1}/>
+        <Nota num = {2} nota ={nota2} setNota={setNota2}/>
+        <Nota num = {3} nota ={nota3} setNota={setNota3}/>
+        <Nota num = {4} nota ={nota4} setNota={setNota4}/>
+        <Resultado somaNotas ={Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)} />
           
     
         </>)
