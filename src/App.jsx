@@ -1,26 +1,19 @@
 import React, { useState } from "react";
 import Nota from "./Components/Nota";
 import Resultado from "./Components/Resultado";
+import Caixa from "./Components/Caixa";
 
 function App() {
-  const [notas, setNotas] = useState({ 'nota1': '0', 'nota2': '0', 'nota3': '0', 'nota4': '0' });
 
-  const handleSetNome = (e) => {
-    const { name, value } = e.target;
 
-    setNotas(prevNotas => ({
-      ...prevNotas,
-      [name]: value
-    }));
-  }
 
   return (
     <>
-      <Nota num={1} nota={notas.nota1} nome="nota1" setNota={handleSetNome} />
-      <Nota num={2} nota={notas.nota2} nome="nota2" setNota={handleSetNome} />
-      <Nota num={3} nota={notas.nota3} nome="nota3" setNota={handleSetNome} />
-      <Nota num={4} nota={notas.nota4} nome="nota4" setNota={handleSetNome} />
-      <Resultado somaNotas={Number(notas.nota1) + Number(notas.nota2) + Number(notas.nota3) + Number(notas.nota4)} />
+    <Caixa site= 'www.cfbcursos.com.br'>
+        <h1>CBF Cursos</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit esse ex nostrum cumque, temporibus inventore aut provident debitis eaque dicta aliquam voluptatem magni sunt dolorem quod quibusdam tempora iste magnam tempore? Animi aperiam eligendi consequatur minus! Dolor sint voluptatum obcaecati, placeat quibusdam ex necessitatibus provident eos alias. Dignissimos facilis, unde hic ut vero facere. Explicabo repellat quo necessitatibus dolores ut perspiciatis consectetur ab enim dolorum consequatur, laborum laudantium molestiae. Ex exercitationem reprehenderit totam ducimus accusamus, maxime eius iste dolorum necessitatibus labore quaerat delectus, perspiciatis sint minima dolore blanditiis quam harum magnam obcaecati omnis est praesentium quae voluptate vel. Amet, illum.</p>
+    </Caixa>
+      
     </>
   );
 }
