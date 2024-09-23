@@ -7,7 +7,7 @@ function App() {
     return (
       <>
        <h1>Componentes de Classe</h1>
-       <Classe/>
+       <Classe canal="CBF CURSOS"/>
       </>
   );
 }
