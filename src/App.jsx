@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Classe from "./Components/Classe";
+import Carro from "./Components/Carro";
 
 function App() {
    
@@ -8,6 +9,7 @@ function App() {
       <>
        <h1>Componentes de Classe</h1>
        <Classe canal="CBF CURSOS"/>
+       <Carro/>
       </>
   );
 }
