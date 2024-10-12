@@ -14,7 +14,12 @@ class Carro extends React.Component {
     }
 
     ligar() {
-        this.setState({ ligado: true });
+        // this.setState({ ligado: true });
+        this.setState(
+            (state)=>({
+                ligado:!state.ligado
+            })
+        )
     }
 
     render() {
