@@ -11,6 +11,7 @@ class Carro extends React.Component {
 
         // Ligando o método ligar ao contexto da classe
         this.ligar = this.ligar.bind(this);
+        
     }
 
     ligar() {
