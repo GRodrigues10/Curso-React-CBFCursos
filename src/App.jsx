@@ -9,7 +9,7 @@ function App() {
       <>
        <h1>Componentes de Classe</h1>
        <Classe canal="CBF CURSOS"/>
-       <Carro/>
+       <Carro fator = {10}/>
       </>
   );
 }

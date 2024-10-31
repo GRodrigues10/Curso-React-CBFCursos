@@ -1,25 +1,29 @@
 import React from "react";
-
 class Carro extends React.Component {
     constructor(props) {
         super(props);
         this.modelo = 'Golf';
         this.state = {
             ligado: false,
-            velAtual: 0,
+            velAtual: 0,  
         };
 
-        // Ligando o método ligar ao contexto da classe
+        // Ligando os métodos ao contexto da classe
         this.ligar = this.ligar.bind(this);
-        
+        this.acelerar = this.acelerar.bind(this); // Adicionando o bind para o método acelerar
     }
 
     ligar() {
-        // this.setState({ ligado: true });
         this.setState(
-            (state)=>({
-                ligado:!state.ligado
+            (state) => ({
+                ligado: !state.ligado
             })
+        )
+    }
+
+    acelerar() {
+        this.setState(
+            (state, props) => ({ velAtual: state.velAtual + props.fator })
         )
     }
 
@@ -31,6 +35,7 @@ class Carro extends React.Component {
                 <p>Ligado: {this.state.ligado ? 'Sim' : 'Não'}</p>
                 <p>Velocidade Atual: {this.state.velAtual}</p>
                 <button onClick={this.ligar}>Ligar Carro</button>
+                <button onClick={this.acelerar}>Acelerar</button>
             </>
         );
     }
